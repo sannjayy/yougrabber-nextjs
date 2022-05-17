@@ -1,19 +1,20 @@
 import React from 'react'
 import styles from '../../styles/Home.module.css'
+import Link from "next/link";   
 
 export default function Index() {
   return (
-    <footer className={`${[styles.footer]} mt-5`}>
-        <a
-            href="https://znas.in"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Powered by Znas Solutions
-            <span className={styles.logo}>
-                {/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
-            </span>
-        </a>
-    </footer>
+    <>
+        <div style={{marginTop:20}}></div>
+        {/* <hr style={{marginBottom:20}}/> */}
+        <footer className={`${[styles.footer]} mt-5`} style={{marginBottom:20}}>        
+            <Link href="/youtube/thumbnail-downloader">
+            <a>YouTube Thumbnail Download</a>
+            </Link>
+            <Link href="/youtube/profile-picture-download">
+            <a>YouTube Profile Picture Download</a>
+            </Link>
+        </footer>
+    </>
   )
 }

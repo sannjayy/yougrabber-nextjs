@@ -1,0 +1,25 @@
+.ThumbnailContaner{
+   
+    height: 263px;
+    background: rgba(255,255,252,0.3);
+    text-align: -webkit-center;
+
+}
+
+.ProfileImageContaner{
+    margin: 0 auto;
+    height: 500px;
+    width: 500px;
+    background: rgba(255,255,252,0.3);
+    text-align: -webkit-center;
+
+}
+
+@media (max-width: 767px) {
+
+    .ProfileImageContaner{
+        height: 100%;
+        width: 100%;
+    
+    }
+}

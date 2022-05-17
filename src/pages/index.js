@@ -3,50 +3,33 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Footer from '../components/Footer'
-import Form from '../components/SubmitLinkForm'
-import ThumbnailCard from '../components/ThumbnailCard'
 import Header from '../components/Header'
-import { youtube_video_id_parser } from "../utils";
+import AppGrid from "../components/Home/AppGrid";
+import Link from "next/link"; 
 
 
 export default function Home() {
-	const [url, setUrl] = useState('')
-	const [videoID, setVideoID] = useState(null)
-	const onSubmit = (e) => {
-		e.preventDefault()
-		setVideoID(youtube_video_id_parser(url))
-	}
 
-	useEffect(() => {
-		const videoID = youtube_video_id_parser(url)
-		if (videoID) {
-			setVideoID(videoID)
-		} else {
-			setVideoID(null)
-		}
-	}, [url])
 	return (
-		<div className="container">
+		<div className="container-fluid">
 			<Head>
-				<title>YouGrabber</title>
-				<meta name="description" content="YouTube Thumbnail Grabber" />
+				<title>Online Tool</title>
+				<meta name="description" content="Online Tools" />
 			</Head>
 
 			<div className="row">
 				<Header />
-				<div className="col-md-12">
-					<Form 
-						url={url}
-						setUrl={setUrl}
-						onSubmit={onSubmit}
-					/>
-				</div>
-				<div className="col-md-12">
-					{ videoID && <ThumbnailCard videoID={videoID} /> }
-				</div>
+                <AppGrid 
+                    title='YouTube Thumbnail Downloader'
+                    path='/youtube/thumbnail-downloader'
+                />
+                <AppGrid 
+                    title='YouTube Profile Picture Downloader'
+                    path='/youtube/profile-picture-download'
+                />
 			</div>
 
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }
